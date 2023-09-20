@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230920 22:12:05.231" rpa="false" schemaversion="3">
+<suite id="s1" name="GUI test cases" source="C:\Users\LucieSarah\Robot_Framework_studies\GUI_testing_project\GUI_test_cases.robot">
+<kw name="Open the browser, set geolocation and accept all cookies" library="MyKeywords" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230920 22:12:07.661" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "C:\\Users\\LucieSarah\\Robot_Framework_studies\\GUI_testing_project\\browser\\traces\\4eebcfa5-3710-4592-b822-06196273c6f5"}</msg>
+<msg timestamp="20230920 22:12:09.764" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"C:\\Users\\LucieSarah\\Robot_Framework_studies\\GUI_testing_project\\browser\\traces\\4eebcfa5-3710-4592-b822-06196273c6f5"}</msg>
+<status status="PASS" starttime="20230920 22:12:07.660" endtime="20230920 22:12:09.765"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${permissions}</var>
+<arg>geolocation</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230920 22:12:09.766" level="INFO">${permissions} = ['geolocation']</msg>
+<status status="PASS" starttime="20230920 22:12:09.765" endtime="20230920 22:12:09.766"/>
+</kw>
+<kw name="New Context" library="Browser">
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<arg>permissions=${permissions}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<msg timestamp="20230920 22:12:09.770" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "hideRfBrowser": false,
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "permissions": [
+    "geolocation"
+  ],
+  "reducedMotion": "no-preference",
+  "viewport": {
+    "height": 1080,
+    "width": 1920
+  },
+  "deprecated_pos_args": []
+}</msg>
+<msg timestamp="20230920 22:12:09.822" level="INFO">Successfully created context. </msg>
+<msg timestamp="20230920 22:12:09.822" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'hideRfBrowser': False, 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'permissions': ['geolocation'], 'reducedMotion': 'no-preference', 'viewport': {'height': 1080, 'width': 1920}, 'deprecated_pos_args': []}</msg>
+<status status="PASS" starttime="20230920 22:12:09.767" endtime="20230920 22:12:09.822"/>
+</kw>
+<kw name="Set Geolocation" library="Browser">
+<arg>50.0859772</arg>
+<arg>14.4083842</arg>
+<arg>3</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Updated the correct Context's geolocation.</doc>
+<msg timestamp="20230920 22:12:09.824" level="INFO">{"latitude": 50.0859772, "longitude": 14.4083842, "accuracy": 3.0}</msg>
+<msg timestamp="20230920 22:12:09.834" level="INFO">Geolocation set to: {"latitude":50.0859772,"longitude":14.4083842,"accuracy":3}</msg>
+<status status="PASS" starttime="20230920 22:12:09.823" endtime="20230920 22:12:09.834"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:12:12.793" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:12:09.835" endtime="20230920 22:12:12.794"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIMEOUT_BROWSER}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<msg timestamp="20230920 22:12:12.801" level="INFO">Set timeout to: 20000</msg>
+<status status="PASS" starttime="20230920 22:12:12.794" endtime="20230920 22:12:12.801"/>
+</kw>
+<kw name="Get Title" library="Browser">
+<var>${text}</var>
+<arg>==</arg>
+<arg>${TITLE}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<msg timestamp="20230920 22:12:12.826" level="INFO">Title: 'Online supermarket Rohlik.cz — nejrychlejší doručení ve městě'</msg>
+<msg timestamp="20230920 22:12:12.835" level="INFO">${text} = Online supermarket Rohlik.cz — nejrychlejší doručení ve městě</msg>
+<status status="PASS" starttime="20230920 22:12:12.802" endtime="20230920 22:12:12.835"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${text}</arg>
+<arg>${TITLE}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230920 22:12:12.835" endtime="20230920 22:12:12.836"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${COOKIES}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230920 22:12:12.837" endtime="20230920 22:12:13.306"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230920 22:12:15.260" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230920 22:12:13.306" endtime="20230920 22:12:15.261"/>
+</kw>
+<status status="PASS" starttime="20230920 22:12:07.659" endtime="20230920 22:12:15.262"/>
+</kw>
+<test id="s1-t1" name="Login to rohlik.cz with valid credentials - Positive" line="16">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:12:19.767" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:12:15.347" endtime="20230920 22:12:19.767"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:12:21.983" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:12:19.768" endtime="20230920 22:12:21.983"/>
+</kw>
+<status status="PASS" starttime="20230920 22:12:15.346" endtime="20230920 22:12:21.984"/>
+</kw>
+<kw name="Login" library="MyKeywords">
+<arg>${VALID_EMAIL}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<msg timestamp="20230920 22:12:21.991" level="INFO">Set timeout to: 9000</msg>
+<status status="PASS" starttime="20230920 22:12:21.986" endtime="20230920 22:12:21.991"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:12:32.578" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:12:32.579" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:12:21.992" endtime="20230920 22:12:32.758"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:12:32.759" endtime="20230920 22:12:32.759"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:12:32.759" endtime="20230920 22:12:32.759"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:12:32.760" endtime="20230920 22:12:32.760"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:12:32.760" endtime="20230920 22:12:32.760"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:12:32.760" endtime="20230920 22:12:32.761"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:12:21.985" endtime="20230920 22:12:32.761"/>
+</kw>
+<kw name="Check that the login was successful" library="MyKeywords">
+<arg>${CHECK_VALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:12:32.762" endtime="20230920 22:12:32.763"/>
+</kw>
+<kw name="Logout" library="MyKeywords" type="TEARDOWN">
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-ICON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:12:43.223" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-2.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:12:43.223" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:12:32.764" endtime="20230920 22:12:43.226"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:12:53.650" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-3.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-3.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:12:53.650" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:12:43.226" endtime="20230920 22:12:53.654"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:12:32.764" endtime="20230920 22:12:53.655">Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:12:15.263" endtime="20230920 22:12:53.656">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+Also teardown failed:
+Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<test id="s1-t2" name="Login to rohlik.cz with an invalid password - Negative" line="21">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:12:57.745" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:12:53.881" endtime="20230920 22:12:57.745"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:13:00.113" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:12:57.746" endtime="20230920 22:13:00.114"/>
+</kw>
+<status status="PASS" starttime="20230920 22:12:53.881" endtime="20230920 22:13:00.114"/>
+</kw>
+<kw name="Login" library="MyKeywords">
+<arg>${VALID_EMAIL}</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20230920 22:13:00.117" endtime="20230920 22:13:00.118"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:13:10.582" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-4.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-4.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:13:10.583" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:13:00.119" endtime="20230920 22:13:10.584"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:10.585" endtime="20230920 22:13:10.585"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:10.585" endtime="20230920 22:13:10.586"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:10.586" endtime="20230920 22:13:10.586"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:10.587" endtime="20230920 22:13:10.587"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:10.587" endtime="20230920 22:13:10.588"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:13:00.116" endtime="20230920 22:13:10.588"/>
+</kw>
+<kw name="Check that the login was unsuccessful" library="MyKeywords">
+<arg>${CHECK_INVALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:13:10.589" endtime="20230920 22:13:10.589"/>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:12:53.815" endtime="20230920 22:13:10.590">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<test id="s1-t3" name="Login to rohlik.cz with an invalid email - Negative" line="25">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:13:14.590" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:13:10.838" endtime="20230920 22:13:14.591"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:13:16.944" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:13:14.591" endtime="20230920 22:13:16.944"/>
+</kw>
+<status status="PASS" starttime="20230920 22:13:10.837" endtime="20230920 22:13:16.945"/>
+</kw>
+<kw name="Login" library="MyKeywords">
+<arg>${INVALID_EMAIL}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20230920 22:13:16.947" endtime="20230920 22:13:16.949"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:13:27.472" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-5.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-5.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:13:27.473" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:13:16.950" endtime="20230920 22:13:27.476"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:27.477" endtime="20230920 22:13:27.477"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:27.478" endtime="20230920 22:13:27.478"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:27.479" endtime="20230920 22:13:27.479"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:27.480" endtime="20230920 22:13:27.480"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:27.481" endtime="20230920 22:13:27.481"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:13:16.946" endtime="20230920 22:13:27.482"/>
+</kw>
+<kw name="Check that the login was unsuccessful" library="MyKeywords">
+<arg>${CHECK_INVALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:13:27.483" endtime="20230920 22:13:27.483"/>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:13:10.755" endtime="20230920 22:13:27.484">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<test id="s1-t4" name="Logout from rohlik.cz - Positive" line="29">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:13:31.595" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:13:27.724" endtime="20230920 22:13:31.595"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:13:34.086" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:13:31.596" endtime="20230920 22:13:34.086"/>
+</kw>
+<status status="PASS" starttime="20230920 22:13:27.723" endtime="20230920 22:13:34.087"/>
+</kw>
+<kw name="Login" library="MyKeywords">
+<arg>${VALID_EMAIL}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20230920 22:13:34.090" endtime="20230920 22:13:34.092"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:13:44.553" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-6.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-6.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:13:44.553" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:13:34.093" endtime="20230920 22:13:44.556"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:44.557" endtime="20230920 22:13:44.557"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:44.558" endtime="20230920 22:13:44.558"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:44.558" endtime="20230920 22:13:44.559"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:44.559" endtime="20230920 22:13:44.559"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:13:44.560" endtime="20230920 22:13:44.560"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:13:34.088" endtime="20230920 22:13:44.560"/>
+</kw>
+<kw name="Check that the login was successful" library="MyKeywords">
+<arg>${CHECK_VALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:13:44.562" endtime="20230920 22:13:44.563"/>
+</kw>
+<kw name="Logout" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:13:44.563" endtime="20230920 22:13:44.564"/>
+</kw>
+<kw name="Check that the logout was successful" library="MyKeywords">
+<arg>${CHECK_VALID_LOGOUT}</arg>
+<status status="NOT RUN" starttime="20230920 22:13:44.565" endtime="20230920 22:13:44.565"/>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:13:27.633" endtime="20230920 22:13:44.566">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<test id="s1-t5" name="Adding and deleting items from the basket - Positive" line="35">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:13:46.311" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:13:44.767" endtime="20230920 22:13:46.312"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:13:49.568" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:13:46.312" endtime="20230920 22:13:49.568"/>
+</kw>
+<status status="PASS" starttime="20230920 22:13:44.766" endtime="20230920 22:13:49.569"/>
+</kw>
+<kw name="Login" library="MyKeywords">
+<arg>${VALID_EMAIL}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20230920 22:13:49.571" endtime="20230920 22:13:49.573"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:14:00.061" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-7.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-7.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:14:00.061" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:13:49.573" endtime="20230920 22:14:00.064"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:00.065" endtime="20230920 22:14:00.065"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:00.065" endtime="20230920 22:14:00.065"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:00.066" endtime="20230920 22:14:00.066"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:00.066" endtime="20230920 22:14:00.067"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:00.067" endtime="20230920 22:14:00.067"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:13:49.570" endtime="20230920 22:14:00.068"/>
+</kw>
+<kw name="Check that the login was successful" library="MyKeywords">
+<arg>${CHECK_VALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:14:00.069" endtime="20230920 22:14:00.069"/>
+</kw>
+<kw name="Before shopping, make sure the basket is empty" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:14:00.070" endtime="20230920 22:14:00.071"/>
+</kw>
+<kw name="Add to the basket" library="MyKeywords">
+<arg>${ITEM_1}</arg>
+<arg>${SEL_ITEM_1}</arg>
+<status status="NOT RUN" starttime="20230920 22:14:00.072" endtime="20230920 22:14:00.072"/>
+</kw>
+<kw name="Add to the basket" library="MyKeywords">
+<arg>${ITEM_2}</arg>
+<arg>${SEL_ITEM_2}</arg>
+<status status="NOT RUN" starttime="20230920 22:14:00.074" endtime="20230920 22:14:00.074"/>
+</kw>
+<kw name="Closing the dialog box asking where to bring the products" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:14:00.075" endtime="20230920 22:14:00.076"/>
+</kw>
+<kw name="Add to the basket" library="MyKeywords">
+<arg>${ITEM_3}</arg>
+<arg>${SEL_ITEM_3}</arg>
+<status status="NOT RUN" starttime="20230920 22:14:00.076" endtime="20230920 22:14:00.077"/>
+</kw>
+<kw name="Check that the items were added successfully" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:14:00.077" endtime="20230920 22:14:00.077"/>
+</kw>
+<kw name="Empty the basket" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:14:00.079" endtime="20230920 22:14:00.079"/>
+</kw>
+<kw name="Logout" library="MyKeywords" type="TEARDOWN">
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-ICON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:14:10.500" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-8.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-8.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:14:10.500" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:14:00.080" endtime="20230920 22:14:10.503"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:14:20.929" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-9.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-9.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:14:20.929" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:14:10.503" endtime="20230920 22:14:20.932"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:14:00.080" endtime="20230920 22:14:20.933">Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:13:44.697" endtime="20230920 22:14:20.934">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+Also teardown failed:
+Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<test id="s1-t6" name="Looking for an item- Negative" line="47">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:14:24.797" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:14:21.128" endtime="20230920 22:14:24.797"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:14:27.177" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:14:24.797" endtime="20230920 22:14:27.177"/>
+</kw>
+<status status="PASS" starttime="20230920 22:14:21.128" endtime="20230920 22:14:27.177"/>
+</kw>
+<kw name="Non-existing item" library="MyKeywords">
+<arg>${NON-EXISTING-ITEM_1}</arg>
+<kw name="Login" library="MyKeywords">
+<arg>${VALID_EMAIL}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20230920 22:14:27.180" endtime="20230920 22:14:27.182"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:14:37.929" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-10.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-10.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:14:37.930" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:14:27.183" endtime="20230920 22:14:37.934"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.935" endtime="20230920 22:14:37.935"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.936" endtime="20230920 22:14:37.936"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.936" endtime="20230920 22:14:37.937"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.937" endtime="20230920 22:14:37.937"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.938" endtime="20230920 22:14:37.938"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:14:27.179" endtime="20230920 22:14:37.938"/>
+</kw>
+<kw name="Check that the login was successful" library="MyKeywords">
+<arg>${CHECK_VALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:14:37.939" endtime="20230920 22:14:37.939"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<var>${non-existing}</var>
+<arg>${SEL_GLOBAL_SEARCH}</arg>
+<arg>${NON-EXISTING-ITEM_1}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.939" endtime="20230920 22:14:37.939"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>${SEL_ERROR}</arg>
+<arg>contains</arg>
+<arg>${ERROR_TEXT}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.940" endtime="20230920 22:14:37.940"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:14:37.940" endtime="20230920 22:14:37.940"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:14:27.178" endtime="20230920 22:14:37.941"/>
+</kw>
+<kw name="Logout" library="MyKeywords" type="TEARDOWN">
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-ICON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:14:48.436" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-11.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-11.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:14:48.436" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:14:37.945" endtime="20230920 22:14:48.439"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:14:58.950" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-12.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-12.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:14:58.951" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:14:48.439" endtime="20230920 22:14:58.953"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:14:37.944" endtime="20230920 22:14:58.954">Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:14:21.064" endtime="20230920 22:14:58.955">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+Also teardown failed:
+Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<test id="s1-t7" name="Removing one item from the basket - Positive" line="51">
+<kw name="Before each test" library="MyKeywords" type="SETUP">
+<kw name="New Page" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230920 22:15:00.990" level="INFO">Successfully initialized new page object and opened url: https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:14:59.211" endtime="20230920 22:15:00.991"/>
+</kw>
+<kw name="Go To" library="Browser">
+<arg>${URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230920 22:15:04.517" level="INFO">Successfully opened URL https://www.rohlik.cz/vitejte</msg>
+<status status="PASS" starttime="20230920 22:15:00.991" endtime="20230920 22:15:04.517"/>
+</kw>
+<status status="PASS" starttime="20230920 22:14:59.210" endtime="20230920 22:15:04.518"/>
+</kw>
+<kw name="Remove one item from the basket" library="MyKeywords">
+<arg>${SEL_REMOVE_ITEM_3}</arg>
+<kw name="Login" library="MyKeywords">
+<arg>${VALID_EMAIL}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" starttime="20230920 22:15:04.521" endtime="20230920 22:15:04.523"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGIN-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:15:14.942" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-13.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-13.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:15:14.942" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:15:04.524" endtime="20230920 22:15:14.945"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.945" endtime="20230920 22:15:14.946"/>
+</kw>
+<kw name="Set Browser Timeout" library="Browser">
+<arg>${TIME_BETWEEN_CLICKS}</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.946" endtime="20230920 22:15:14.946"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_EMAIL}</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.947" endtime="20230920 22:15:14.947"/>
+</kw>
+<kw name="Type Text" library="Browser">
+<arg>${SEL_LOGIN_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.948" endtime="20230920 22:15:14.948"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_CONFIRM-LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.948" endtime="20230920 22:15:14.948"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:15:04.520" endtime="20230920 22:15:14.949"/>
+</kw>
+<kw name="Check that the login was successful" library="MyKeywords">
+<arg>${CHECK_VALID_LOGIN}</arg>
+<status status="NOT RUN" starttime="20230920 22:15:14.949" endtime="20230920 22:15:14.950"/>
+</kw>
+<kw name="Before shopping, make sure the basket is empty" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:15:14.950" endtime="20230920 22:15:14.950"/>
+</kw>
+<kw name="Add to the basket" library="MyKeywords">
+<arg>${ITEM_1}</arg>
+<arg>${SEL_ITEM_1}</arg>
+<status status="NOT RUN" starttime="20230920 22:15:14.951" endtime="20230920 22:15:14.951"/>
+</kw>
+<kw name="Add to the basket" library="MyKeywords">
+<arg>${ITEM_2}</arg>
+<arg>${SEL_ITEM_2}</arg>
+<status status="NOT RUN" starttime="20230920 22:15:14.951" endtime="20230920 22:15:14.952"/>
+</kw>
+<kw name="Closing the dialog box asking where to bring the products" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:15:14.952" endtime="20230920 22:15:14.953"/>
+</kw>
+<kw name="Add to the basket" library="MyKeywords">
+<arg>${ITEM_3}</arg>
+<arg>${SEL_ITEM_3}</arg>
+<status status="NOT RUN" starttime="20230920 22:15:14.953" endtime="20230920 22:15:14.953"/>
+</kw>
+<kw name="Closing the dialog box asking where to bring the products" library="MyKeywords">
+<status status="NOT RUN" starttime="20230920 22:15:14.954" endtime="20230920 22:15:14.954"/>
+</kw>
+<kw name="Click" library="Browser">
+<var>${sel_remove}</var>
+<arg>${SEL_REMOVE_ITEM_3}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.954" endtime="20230920 22:15:14.954"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230920 22:15:14.955" endtime="20230920 22:15:14.955"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:15:04.519" endtime="20230920 22:15:14.956"/>
+</kw>
+<kw name="Logout" library="MyKeywords" type="TEARDOWN">
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-ICON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:15:25.376" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-14.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-14.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:15:25.376" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:15:14.958" endtime="20230920 22:15:25.379"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>${SEL_LOGOUT-BTN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230920 22:15:35.766" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-15.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-15.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230920 22:15:35.766" level="FAIL">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<status status="FAIL" starttime="20230920 22:15:25.380" endtime="20230920 22:15:35.768"/>
+</kw>
+<status status="FAIL" starttime="20230920 22:15:14.957" endtime="20230920 22:15:35.769">Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</kw>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20230920 22:14:59.127" endtime="20230920 22:15:35.770">TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-33d19302-0 gLxZbZ"][data-test="button"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+Also teardown failed:
+Several failures occurred:
+
+1) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('[class="sc-c54407f5-6 gYYdTT"]')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.
+
+2) TimeoutError: locator.click: Timeout 9000ms exceeded.
+=========================== logs ===========================
+waiting for locator('data-test=user-box-logout-button')
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<kw name="Close it all" library="MyKeywords" type="TEARDOWN">
+<kw name="Close Browser" library="Browser">
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<msg timestamp="20230920 22:15:36.493" level="INFO">Closed browser</msg>
+<status status="PASS" starttime="20230920 22:15:35.907" endtime="20230920 22:15:36.493"/>
+</kw>
+<status status="PASS" starttime="20230920 22:15:35.907" endtime="20230920 22:15:36.494"/>
+</kw>
+<doc>Testing login and logout on Rohlik.cz, adding items to the basket, and removing them from the basket.</doc>
+<status status="FAIL" starttime="20230920 22:12:05.234" endtime="20230920 22:15:36.494"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="7" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="7" skip="0" id="s1" name="GUI test cases">GUI test cases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
