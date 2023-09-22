@@ -1,6 +1,5 @@
 *** Settings ***
-Documentation     These exercises served to practice keywords. The task was to create keywords for the calculator.
-
+Documentation       These exercises served to practice keywords. The task was to create one keyword for the calculator and another to compare the expected results.
 
 
 *** Test Cases ***
@@ -37,6 +36,6 @@ Calculate
 Compare ValuesCorrect
         [Arguments]    ${expected}    ${actual}
         ${resultValues} =    Run Keyword And Return Status    Should Be Equal As Numbers    ${expected}    ${actual}
-        ${result_string} =    Run Keyword If    ${resultValues}    Set Variable    The result of the mathematical operation is ${actual}.    ELSE    Set Variable    You expect a result ${expected}, but the correct result is ${actual}. This test verified that the calculator can calculate correctly.
+        ${result_string} =    Run Keyword If    ${resultValues}    Set Variable    The result of the mathematical operation is ${actual}.    ELSE    Set Variable    Your expected result is ${expected}, but the correct result is ${actual}. This test verified that the calculator can calculate correctly.
         Log    ${result_string}
         [Return]    ${result_string}
